@@ -9,7 +9,7 @@
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
     "start": "webpack-dev-server",
-    "test": "npm run test:lint && npm run test:unit && NODE_ENV=production npm run build && npm run test:integration",
+    "test": "NODE_ENV=production npm run build && npm run test:integration",
     "test:integration": "jest --runInBand test[\\\\/]integration",
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit",
@@ -89,7 +89,6 @@
     "scratch-paint": "latest",
     "scratch-render": "latest",
     "scratch-storage": "^0.3.0",
-    "scratch-vm": "latest",
     "selenium-webdriver": "3.5.0",
     "startaudiocontext": "1.2.1",
     "style-loader": "^0.19.0",
@@ -100,6 +99,9 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
     "xhr": "2.4.0"
+  },
+  "dependencies": {
+    "scratch-vm": "github:paulkaplan/scratch-vm#custom-procedure-updates"
   },
   "jest": {
     "setupFiles": [
